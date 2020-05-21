@@ -19,7 +19,7 @@ pub(crate) fn enter<T>(f: impl FnOnce() -> T) -> T {
             env.parse()
                 .expect("ASYNC_STD_THREAD_COUNT must be a number")
         })
-        .unwrap_or(4)).build().expect("cannot initialize tokio"));
+        .unwrap_or(4)).enable_all().build().expect("cannot initialize tokio"));
 
         RT.enter(f)
     }
